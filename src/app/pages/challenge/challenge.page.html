@@ -1,0 +1,56 @@
+<!-- <p>{{ service.tasks | json }}</p> -->
+
+<div *ngFor="let key of Object.keys(service.tasks)">
+
+    <h2 class="task" id="key">{{ key }}</h2>
+    <button class="zoom" (click)="toggleZoom(key)">ZOOM</button>
+
+    <div class="task" [ngStyle]="{ 'background-color': service.tasks[key].display?.zoom ? '#123' : '#FFF' }">
+
+        <!-- <pre class="json" >{{ service.tasks[key] | json }}</pre> -->
+        <div class="grids" *ngFor="let grids of service.tasks[key].train">
+
+            <div class="input" [ngStyle]="{
+                'grid-template-columns': 'repeat(' + grids.input.length    +  ', ' + 180/grids.input.length + 'px)',
+                'grid-template-rows':    'repeat(' + grids.input[0].length +  ', ' + 180/grids.input[0].length + 'px)',
+            }">
+                <ng-template ngFor let-row [ngForOf]="grids.input">
+                    <ng-template ngFor let-col [ngForOf]="row">
+                        <div class="box" [ngStyle]="{'background-color': colors[col].hex }">
+                            {{ col }}
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </div>
+
+            <div class="output" [ngStyle]="{
+                'grid-template-columns': 'repeat(' + grids.output.length    +  ', ' + 180/grids.output.length + 'px)',
+                'grid-template-rows':    'repeat(' + grids.output[0].length +  ', ' + 180/grids.output[0].length + 'px)',
+            }">
+                <ng-template ngFor let-row [ngForOf]="grids.output">
+                    <ng-template ngFor let-col [ngForOf]="row">
+                        <div class="box" [ngStyle]="{'background-color': colors[col].hex }">
+                            {{ col }}
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!--
+"train": [
+    {"input":[[3,1,2],[3,1,2],[3,1,2]], "output":[[4,5,6],[4,5,6],[4,5,6]]},
+    {"input":[[2,3,8],[2,3,8],[2,3,8]], "output":[[6,4,9],[6,4,9],[6,4,9]]},
+    {"input":[[5,8,6],[5,8,6],[5,8,6]], "output":[[1,9,2],[1,9,2],[1,9,2]]},
+    {"input":[[9,4,2],[9,4,2],[9,4,2]], "output":[[8,3,6],[8,3,6],[8,3,6]]}
+    ],
+-->
+
