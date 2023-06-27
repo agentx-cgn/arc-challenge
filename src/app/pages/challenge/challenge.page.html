@@ -5,7 +5,7 @@
     <h2 class="task" id="key">{{ key }}</h2>
     <button class="zoom" (click)="toggleZoom(key)">ZOOM</button>
 
-    <div class="task" [ngStyle]="{ 'background-color': service.tasks[key].display?.zoom ? '#123' : '#FFF' }">
+    <div class="task" [ngStyle]="{ 'background-color': service.tasks[key].display.zoom ? '#666' : '#FFF' }">
 
         <!-- <pre class="json" >{{ service.tasks[key] | json }}</pre> -->
         <div class="grids" *ngFor="let grids of service.tasks[key].train">

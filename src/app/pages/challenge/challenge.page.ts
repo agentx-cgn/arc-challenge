@@ -19,12 +19,13 @@ export class ChallengePage implements AfterViewInit {
     { 'name': 'Red',      'hex': '#e6194B' },
     { 'name': 'Green',    'hex': '#3cb44b' },
     { 'name': 'Yellow',   'hex': '#ffe119' },
-    { 'name': 'Orange',   'hex': '#f58231' },
+    { 'name': 'Grey',     'hex': '#aaaaaa' },
     { 'name': 'Magenta',  'hex': '#f032e6' },
-    { 'name': 'Purple',   'hex': '#911eb4' },
+    { 'name': 'Orange',   'hex': '#f58231' },
     { 'name': 'Cyan',     'hex': '#42d4f4' },
+    { 'name': 'Purple',   'hex': '#911eb4' },
     { 'name': 'Lime',     'hex': '#bfef45' },
-    { 'name': 'Pink',     'hex': '#fabed4' },
+    { 'name': 'Brown',    'hex': '#870C25' },
   ];
 
   constructor ( public readonly service: ChallengeService ) {

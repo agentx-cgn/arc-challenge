@@ -26,25 +26,25 @@ button.task {
 
 div.grids {
     margin: 4px;
-    width: 360px;
+    width: 362px;
     height: 180px;
-    background-color: red;
+    background-color: white;
     display: inline-block;
 }
 
 div.input, div.output {
     display: grid;
-    width: 180px;
-    height: 180px;
+    width: 181px;
+    height: 181px;
     grid-auto-flow: row;
     float: left;
 }
 
 div.input {
-    background-color: orange;
+    // border-right: 1px solid white;
 }
 div.output {
-    background-color: darkorange;
+    // border-left: 1px solid white;
 }
 
 

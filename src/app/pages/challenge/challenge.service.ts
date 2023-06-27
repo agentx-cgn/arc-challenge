@@ -5,12 +5,19 @@ import tasksAll from './../../../assets/tasks/training.all.json';
 export type TTaskAll = typeof tasksAll;
 
 type TTask = {
-    display?: { zoom: boolean },
-    info?: {
-        gridTest:  [number, number],
-        gridTrain: [number, number],
+    display: { zoom: boolean },
+    info: {
+        gridTest: {
+            input:  number[]
+            output: number[]
+        }
+        ,
+        gridTrain: {
+            input:  number[][]
+            output: number[][]
+        },
         setsTrain: number,
-        setsTest: number,
+        setsTest:  number,
     }
     train: {
         input: number[][];
@@ -36,24 +43,9 @@ export class ChallengeService {
 
         this.tasks = Object
             .entries(tasksAll as TTasks).slice(0, maxTasks)
-            .reduce( ( accu, [ name, task] ) => {
-
-                // if (task.test[0].input.length === 3 || task.test[0].input.length === 5) {
-                    accu[name] = {
-                        info: {
-                            setsTrain: task.train.length,
-                            setsTest:  task.test.length,
-                            gridTest:  [task.test[0].input.length,  task.test[0].input[0].length],
-                            gridTrain: [task.train[0].input.length, task.train[0].input[0].length],
-                        },
-                        display: { zoom: false },
-                        train: task.train,
-                        test:  task.test,
-                    }
-                // }
-
+            .reduce ( (accu, [name, task]) => {
+                accu[name] = task;
                 return accu;
-
             }, {} as TTasks)
         ;
 
