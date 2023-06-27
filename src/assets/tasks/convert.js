@@ -12,6 +12,10 @@ function enhanceTask(task) {
     task.info = {
         setsTrain: task.train.length,
         setsTest:  task.test.length,
+        // sizes: {
+        //     input:
+        //     output:
+        // },
         gridTest:  {
             input:  [ task.test[0].input.length,  task.test[0].input[0].length  ],
             output: [ task.test[0].output.length, task.test[0].output[0].length ]
