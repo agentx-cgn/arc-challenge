@@ -2,7 +2,10 @@
 
 <div *ngFor="let key of Object.keys(service.tasks)">
 
-    <h2 class="task" id="key">{{ key }}</h2>
+    <h2 class="task" id="{{ key }}">
+        <a href="#{{ key }}">{{ key }}</a>
+    </h2>
+
     <button class="zoom" (click)="toggleZoom(key)">ZOOM</button>
 
     <div class="task" [ngStyle]="{ 'background-color': service.tasks[key].display.zoom ? '#666' : '#FFF' }">
@@ -53,4 +56,3 @@
     {"input":[[9,4,2],[9,4,2],[9,4,2]], "output":[[8,3,6],[8,3,6],[8,3,6]]}
     ],
 -->
-
