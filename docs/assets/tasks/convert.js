@@ -1,12 +1,34 @@
 const path = require('path');
-const fs = require('fs');
-const { writeFileSync } = require('fs');
+const fs   = require('fs');
 
 //joining path of directory
 const directoryPath = path.join(__dirname, 'training');
 
 const tasks = {}
 let counter = 0
+
+function enhanceTask(task) {
+
+    task.info = {
+        setsTrain: task.train.length,
+        setsTest:  task.test.length,
+        gridTest:  {
+            input:  [ task.test[0].input.length,  task.test[0].input[0].length  ],
+            output: [ task.test[0].output.length, task.test[0].output[0].length ]
+        },
+        gridTrain: {
+            input:  task.train.map( t => [ t.input.length,  t.input[0].length  ] ),
+            output: task.train.map( t => [ t.output.length, t.output[0].length ] ),
+        },
+    };
+
+    task.display = { zoom: false };
+
+    task.code = "// type here";
+
+    return task;
+
+}
 
 //passsing directoryPath and callback function
 fs.readdir(directoryPath, function (err, files) {
@@ -27,7 +49,7 @@ fs.readdir(directoryPath, function (err, files) {
 
         // console.log(taskname);
 
-        tasks[taskname] = task
+        tasks[taskname] = enhanceTask(task);
 
         counter += 1;
 
@@ -56,4 +78,3 @@ fs.readdir(directoryPath, function (err, files) {
     console.log('Done importing', 'training', counter, fileTarget)
 
 });
-
