@@ -10,7 +10,8 @@
 
     <div class="task" [ngStyle]="{ 'background-color': service.tasks[key].display.zoom ? '#666' : '#FFF' }">
 
-        <!-- <pre class="json" >{{ service.tasks[key] | json }}</pre> -->
+        <textarea class="code" >{{ service.tasks[key].code }}</textarea>
+
         <div class="grids" *ngFor="let grids of service.tasks[key].train">
 
             <div class="input" [ngStyle]="{

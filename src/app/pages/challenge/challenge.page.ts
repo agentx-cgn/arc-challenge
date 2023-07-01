@@ -1,5 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { ChallengeService, TTaskAll } from './challenge.service';
+import { ChallengeService } from './challenge.service';
+import { TTaskAll } from 'src/types';
 
 @Component({
   selector: 'page-challenge',

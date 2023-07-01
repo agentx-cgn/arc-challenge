@@ -12,10 +12,6 @@ function enhanceTask(task) {
     task.info = {
         setsTrain: task.train.length,
         setsTest:  task.test.length,
-        // sizes: {
-        //     input:
-        //     output:
-        // },
         gridTest:  {
             input:  [ task.test[0].input.length,  task.test[0].input[0].length  ],
             output: [ task.test[0].output.length, task.test[0].output[0].length ]
@@ -27,6 +23,8 @@ function enhanceTask(task) {
     };
 
     task.display = { zoom: false };
+
+    task.code = "// type here";
 
     return task;
 
@@ -80,4 +78,3 @@ fs.readdir(directoryPath, function (err, files) {
     console.log('Done importing', 'training', counter, fileTarget)
 
 });
-

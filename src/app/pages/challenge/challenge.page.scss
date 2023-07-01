@@ -1,12 +1,15 @@
 
-pre.json {
-    max-height: 200px;
+textarea.code {
+    height: 180px;
     width: 180px;
     overflow-y: scroll;
-    background-color: white;
+    background-color: rgb(87, 87, 87);
+    color: white;
     margin: 4px;
     padding: 0;
     display: inline-block;
+    // white-space: pre-wrap;
+    overflow-y: auto;
 }
 
 h2.task {
@@ -26,16 +29,17 @@ button.task {
 
 div.grids {
     margin: 4px;
-    width: 362px;
-    height: 180px;
+    // width: 362px;
+    // height: 180px;
     background-color: white;
     display: inline-block;
+    vertical-align: top;
 }
 
 div.input, div.output {
     display: grid;
-    width: 181px;
-    height: 181px;
+    // width: 181px;
+    // height: 181px;
     grid-auto-flow: row;
     float: left;
 }
@@ -44,7 +48,7 @@ div.input {
     // border-right: 1px solid white;
 }
 div.output {
-    // border-left: 1px solid white;
+    border-left: 1px solid white;
 }
 
 
