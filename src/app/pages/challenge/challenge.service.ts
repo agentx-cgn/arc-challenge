@@ -4,6 +4,11 @@ import tasksAll from './../../../assets/tasks/training.all.json';
 
 export type TTaskAll = typeof tasksAll;
 
+export type TPanel = {
+    input:  number[]
+    output: number[]
+}
+
 type TTask = {
     display: { zoom: boolean },
     info: {
@@ -39,7 +44,7 @@ export class ChallengeService {
 
     constructor () {
 
-        const maxTasks = 200;
+        const maxTasks = 50;
 
         this.tasks = Object
             .entries(tasksAll as TTasks).slice(0, maxTasks)

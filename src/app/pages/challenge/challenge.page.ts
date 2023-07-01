@@ -67,4 +67,16 @@ export class ChallengePage implements AfterViewInit {
 
   }
 
+  gridStyle (rc: 'r' | 'c', grid: any) {
+
+    const size = 180 / Math.max(grid.length, grid[0].length)
+
+    return (
+      rc === 'r' ? 'repeat(' + grid.length    +  ', ' + size + 'px)' :
+      rc === 'c' ? 'repeat(' + grid[0].length +  ', ' + size + 'px)' :
+      ''
+    );
+
+  }
+
 }

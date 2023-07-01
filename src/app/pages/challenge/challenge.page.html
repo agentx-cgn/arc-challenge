@@ -14,8 +14,8 @@
         <div class="grids" *ngFor="let grids of service.tasks[key].train">
 
             <div class="input" [ngStyle]="{
-                'grid-template-columns': 'repeat(' + grids.input.length    +  ', ' + 180/grids.input.length + 'px)',
-                'grid-template-rows':    'repeat(' + grids.input[0].length +  ', ' + 180/grids.input[0].length + 'px)',
+                'grid-template-columns': gridStyle('c', grids.input),
+                'grid-template-rows':    gridStyle('r', grids.input),
             }">
                 <ng-template ngFor let-row [ngForOf]="grids.input">
                     <ng-template ngFor let-col [ngForOf]="row">
@@ -27,8 +27,8 @@
             </div>
 
             <div class="output" [ngStyle]="{
-                'grid-template-columns': 'repeat(' + grids.output.length    +  ', ' + 180/grids.output.length + 'px)',
-                'grid-template-rows':    'repeat(' + grids.output[0].length +  ', ' + 180/grids.output[0].length + 'px)',
+                'grid-template-columns': gridStyle('c', grids.output),
+                'grid-template-rows':    gridStyle('r', grids.output),
             }">
                 <ng-template ngFor let-row [ngForOf]="grids.output">
                     <ng-template ngFor let-col [ngForOf]="row">
